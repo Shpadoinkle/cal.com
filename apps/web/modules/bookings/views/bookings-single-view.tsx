@@ -164,7 +164,7 @@ export default function Success(props: PageProps) {
   const currentUserEmail =
     searchParams?.get("rescheduledBy") ??
     searchParams?.get("cancelledBy") ??
-    session?.user?.email ??
+    // session?.user?.email ?? // remove this so as not to expose superadmin emails to url logs (nurses and doctors do not login to calcom dashboard)
     undefined;
 
   const defaultRating = isNaN(parsedRating) ? 3 : parsedRating > 5 ? 5 : parsedRating < 1 ? 1 : parsedRating;
